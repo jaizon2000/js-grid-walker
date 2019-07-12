@@ -4,8 +4,8 @@
 // Add a bunch of div elems to <main> 
 
 // 40/row
-for (let row = 0; row < 25; row++) {
-    for (let col = 0; col < 40; col++) {
+for (let row = 1; row < 25+1; row++) {
+    for (let col = 1; col < 40+1; col++) {
         // col = x, row = y
         document.getElementById('main').innerHTML += "<div id='cell" + col + "-" + row + "'></div>";
 
@@ -28,12 +28,11 @@ function checkKeyPress() {
     // Get key code //
     /* console.log(event.keyCode); */
 
-    // Remove current active class
-    walkerId = 'cell' + walkerCol + "-" + walkerRow; // Curent Location
-    document.getElementById(walkerId).classList.remove('active');
 
-    // IF NOT TRUE, that it's off the grid, continue
-    if (walkerCol <= 38 && walkerCol > 0 && walkerRow <= 24 && walkerRow > 0) {
+    if (walkerCol <= 38 && walkerCol > 0 && walkerRow < 24 && walkerRow > 0) {
+        // Remove current active class
+        walkerId = 'cell' + walkerCol + "-" + walkerRow; // Curent Location
+        document.getElementById(walkerId).classList.remove('active');
 
         // TEST coords
         console.log(walkerCol, walkerRow);
@@ -83,8 +82,8 @@ function checkKeyPress() {
                 walkerRow = 1;
                 document.getElementById(walkerId).classList.add('active');
 
-            } else if (walkerRow >= 24) {
-                walkerRow = 24;
+            } else if (walkerRow > 23) {
+                walkerRow--;
                 document.getElementById(walkerId).classList.add('active');
             }
         }
