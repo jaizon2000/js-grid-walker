@@ -2,7 +2,6 @@
 'use strict';
 
 // Add a bunch of div elems to <main> 
-
 // 40/row
 for (let row = 1; row < 25+1; row++) {
     for (let col = 1; col < 40+1; col++) {
